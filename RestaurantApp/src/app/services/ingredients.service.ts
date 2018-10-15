@@ -16,4 +16,11 @@ export class IngredientsService{
       getIngredient(){
         return this.ingredients.slice();
     }
+
+    addIngredients(auxIngredients: Ingredient[]){
+        for (const i of auxIngredients){
+            this.ingredients.push(i);
+        }
+        this.ingredientsChanged.emit(this.ingredients.slice());
+    }
 }
