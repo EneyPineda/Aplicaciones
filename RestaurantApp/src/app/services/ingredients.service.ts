@@ -18,9 +18,25 @@ export class IngredientsService{
     }
 
     addIngredients(auxIngredients: Ingredient[]){
-        for (const i of auxIngredients){
+        //let exist: boolean = false;
+        for(const i of auxIngredients){
+            const a = this.ingredients.find(item => item.name == i.name);
+            console.log(a);
             this.ingredients.push(i);
         }
+        
+         /*   this.ingredients.map(function(item){
+                if(item.name == i.name){
+                    item.amount = item.amount + i.amount;
+                    exist = true;
+                }
+               // return item;
+            });
+            if(!exist) {
+                this.ingredients.push(i);
+              } 
+              */
+         
         this.ingredientsChanged.emit(this.ingredients.slice());
-    }
+    }   
 }
