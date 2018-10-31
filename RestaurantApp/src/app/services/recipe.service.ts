@@ -4,7 +4,7 @@ import { Ingredient } from "../shared/ingredient.model";
 import { IngredientsService } from "./ingredients.service";
 @Injectable()
 export class RecipeService{
-    recipeSelected = new EventEmitter<Recipe>();
+ //   recipeSelected = new EventEmitter<Recipe>();
     private recipes: Recipe[] = [
         new Recipe('A test recipe 1', 'This is a simply test 1', 
         'http://www.titospizzaandwings.com/wp-content/uploads/2016/07/3toppingpizza.jpg', 
@@ -30,6 +30,9 @@ export class RecipeService{
           return this.recipes.slice();
       }
 
+      getRecipe(index:number){
+          return this.recipes[index];
+      }
       addIngredientsToShoppingList(ingredients: Ingredient[]){
           this.ingredientsService.addIngredients(ingredients);
       }
